@@ -1,7 +1,7 @@
 from selenium import webdriver
 from flask import Flask, Response, request
 from selenium.webdriver import PhantomJS
-import os, sys
+import os, sys, time
 
 app = Flask(__name__)
 
