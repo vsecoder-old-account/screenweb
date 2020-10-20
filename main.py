@@ -1,7 +1,13 @@
-from selenium import webdriver
+# -*- coding: utf-8 -*-
+
+from __future__ import absolute_import, division, print_function, unicode_literals
+
+import sys
+import time
+
 from flask import Flask, Response, request
+
 from selenium.webdriver import PhantomJS
-import os, sys, time
 
 app = Flask(__name__)
 
@@ -29,7 +35,7 @@ def index():
 
     if not url:
         return "Example: <a href='http://scrn.herokuapp.com/?url=http://en.ig.ma/&w=1200'>" \
-                "http://scrn.herokuapp.com/?url=http://en.ig.ma/</a>"
+               "http://scrn.herokuapp.com/?url=http://en.ig.ma/</a>"
 
     driver = Driver()
     driver.set_window_position(0, 0)
@@ -49,7 +55,6 @@ def index():
 
     return Response(png, mimetype="image/png")
 
-#RUN
-if __name__ == '__main__':
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host='0.0.0.0', port=port)
+
+if __name__ == "__main__":
+    app.run(debug=True)
